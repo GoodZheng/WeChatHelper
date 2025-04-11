@@ -31,16 +31,15 @@ namespace WeChatHelper
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            LogService.Info("开始从注册表中获取Weixin地址.");
 
-            string? weixinPath = _moreWeChatService.FindWeChatPath();
-            if (string.IsNullOrEmpty(weixinPath))
+            string? wxExePath = _moreWeChatService.GetExePath();
+            if (string.IsNullOrEmpty(wxExePath))
             {
-                MessageBox.Show("未能找到微信的路径，请手动指定！");
+                MessageBox.Show("未能找到微信的 Weixin.exe 路径，请手动指定！");
             }
             else
             {
-                MessageBox.Show($"{weixinPath}");
+                MessageBox.Show($"找到微信的路径：{wxExePath}");
             }
         }
     }
